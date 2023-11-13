@@ -1,9 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       spacing: {
@@ -22,8 +19,13 @@ export default {
         'space-y-xl': '12.5vh',
         'space-y-2xl': '15vh',
       },
+      fontFamily: {
+        headline: ['Zen Dots', 'sans-serif'],
+        subheadline: ['Kdam Thmor Pro', 'sans-serif'],
+        title: ['Poiret One', 'sans-serif'],
+        text: ['Smooch Sans', 'sans-serif'],
+      },
     },
   },
   plugins: [],
-}
-
+};
