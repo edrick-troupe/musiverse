@@ -1,0 +1,51 @@
+$glow-color: rgb(217, 176, 255);
+$glow-spread-color: rgba(191, 123, 255, 0.781);
+$btn-color: rgb(100, 61, 136);
+
+#getting-started {
+  position: relative;
+  font-size: clamp(0.5em, 3vw, 1.125em);
+  font-weight: 700;
+  padding: 1em 2.75em;
+  color: $glow-color;
+  background-color: $btn-color;
+  border: 0.25em solid $glow-color;
+  border-radius: 1em;
+  box-shadow:
+    0 0 1em 0.25em $glow-color,
+    0 0 4em 1em $glow-spread-color,
+    inset 0 0 0.75em 0.25em $glow-color;
+  text-shadow: 0 0 0.5em $glow-color;
+  outline: none;
+  transition: all 0.3s;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 120%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: $glow-spread-color;
+    opacity: 0.7;
+    pointer-events: none;
+    filter: blur(2em);
+    transform: perspective(1.5em) rotateX(35deg) scale(1, 0.6);
+  }
+
+  &:hover {
+    color: $btn-color;
+    background-color: $glow-color;
+    box-shadow:
+      0 0 1em 0.25em $glow-color,
+      0 0 4em 2em $glow-spread-color,
+      inset 0 0 0.75em 0.25em $glow-color;
+  }
+
+  &:active {
+    box-shadow:
+      0 0 0.6em 0.25em $glow-color,
+      0 0 2.5em 2em $glow-spread-color,
+      inset 0 0 0.5em 0.25em $glow-color;
+  }
+}

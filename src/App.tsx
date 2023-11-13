@@ -8,7 +8,7 @@ import AudioPlayer from './components/AudioPlayer/AudioPlayer';
 
 function App() {
   return (
-    <div id="app">
+    <div id="app" className="font-text">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/playlist">

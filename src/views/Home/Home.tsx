@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import Lottie from 'lottie-react';
 import flyingAstronaut from '@assets/lottie/flying-astronaut.json';
 
+import './Home.scss';
+
 export default function Home() {
   const navigate = useNavigate();
 
@@ -12,8 +14,8 @@ export default function Home() {
       className="flex h-full flex-col items-center justify-evenly py-space-y-sm text-center"
     >
       <div id="headlines">
-        <h1>Musiverse</h1>
-        <h2>Découvrez mon univers musical !</h2>
+        <h1 className="font-headline pb-space-y-sm">Musiverse</h1>
+        <h2 className="font-subheadline">Découvrez mon univers musical !</h2>
       </div>
       <div id="home__animation">
         <Lottie
@@ -27,6 +29,7 @@ export default function Home() {
       <div>
         <button
           id="getting-started"
+          className="font-title uppercase"
           type="button"
           onClick={() => navigate('/playlist')}
         >
