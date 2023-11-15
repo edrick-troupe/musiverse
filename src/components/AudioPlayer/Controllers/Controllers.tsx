@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import './Controllers.scss';
@@ -16,6 +17,7 @@ interface ControllersProps {
   currentTrackId: number;
   isPlaying: boolean;
   setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>;
+  discRef: React.RefObject<HTMLDivElement>;
 }
 
 export default function Controllers({
@@ -23,6 +25,7 @@ export default function Controllers({
   currentTrackId,
   isPlaying,
   setIsPlaying,
+  discRef,
 }: ControllersProps) {
   const navigate = useNavigate();
 
@@ -34,6 +37,10 @@ export default function Controllers({
     setIsPlaying(false);
     navigate(`/playlist/track/${currentTrackId + value}`);
   };
+
+  useEffect(() => {
+    discRef.current?.classList.remove('spinning');
+  }, [currentTrackId, discRef]);
 
   return (
     <div

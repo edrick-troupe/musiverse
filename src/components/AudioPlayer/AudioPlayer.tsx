@@ -25,6 +25,7 @@ export default function AudioPlayer({
 
   const audioRef = useRef<HTMLAudioElement>(null);
   const playAnimationRef = useRef<number | null>(null);
+  const discRef = useRef<HTMLDivElement>(null);
 
   const { id } = useParams();
   const currentTrackId = Number(id);
@@ -77,12 +78,20 @@ export default function AudioPlayer({
         id="track-card"
         className="mx-auto flex w-9/12 flex-col items-center gap-y-space-y-xs py-space-y-xs"
       >
-        <TrackDisplay currentTrack={currentTrack} audioRef={audioRef} />
+        <TrackDisplay
+          currentTrack={currentTrack}
+          audioRef={audioRef}
+          discRef={discRef}
+          isPlaying={isPlaying}
+          progression={progression}
+          currentTrackDuration={currentTrackDuration}
+        />
         <Controllers
           playlist={playlist}
           currentTrackId={currentTrackId}
           isPlaying={isPlaying}
           setIsPlaying={setIsPlaying}
+          discRef={discRef}
         />
         <VolumeBar audioRef={audioRef} />
       </div>
