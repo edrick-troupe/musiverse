@@ -1,3 +1,4 @@
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import './AudioPlayer.scss';
@@ -19,10 +20,40 @@ export default function AudioPlayer({
   isLoading,
   error,
 }: AudioPlayerProps) {
-  const { id } = useParams();
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [progression, setProgression] = useState<number | undefined>(0);
 
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const playAnimationRef = useRef<number | null>(null);
+
+  const { id } = useParams();
   const currentTrackId = Number(id);
   const currentTrack = playlist.find((track) => track.id === currentTrackId);
+  const currentTrackDuration = audioRef.current?.duration;
+
+  const repeat = useCallback(() => {
+    setProgression(audioRef.current?.currentTime);
+    playAnimationRef.current = requestAnimationFrame(repeat);
+  }, []);
+
+  useEffect(() => {
+    if (isPlaying) {
+      audioRef.current?.play();
+      playAnimationRef.current = requestAnimationFrame(repeat);
+    } else {
+      audioRef.current?.pause();
+      if (playAnimationRef.current !== null) {
+        cancelAnimationFrame(playAnimationRef.current);
+      }
+    }
+  }, [isPlaying, audioRef, repeat]);
+
+  useEffect(() => {
+    if (progression === currentTrackDuration) {
+      setIsPlaying(false);
+      setProgression(0);
+    }
+  }, [progression, currentTrackDuration]);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -46,9 +77,14 @@ export default function AudioPlayer({
         id="track-card"
         className="mx-auto flex w-9/12 flex-col items-center gap-y-space-y-xs py-space-y-xs"
       >
-        <TrackDisplay currentTrack={currentTrack} />
-        <Controllers />
-        <VolumeBar />
+        <TrackDisplay currentTrack={currentTrack} audioRef={audioRef} />
+        <Controllers
+          playlist={playlist}
+          currentTrackId={currentTrackId}
+          isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
+        />
+        <VolumeBar audioRef={audioRef} />
       </div>
     </div>
   );

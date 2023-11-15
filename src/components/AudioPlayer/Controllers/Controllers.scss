@@ -9,7 +9,6 @@
   .controller-btn {
     padding: clamp(0.5em, 1vw, 1em);
     border-radius: 16px;
-
     &:hover {
       background: rgba(255, 255, 255, 0.75);
 
@@ -17,6 +16,17 @@
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       transition: 1s;
+    }
+
+    &__disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      &:hover {
+        background: none;
+        box-shadow: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
     }
   }
 }
