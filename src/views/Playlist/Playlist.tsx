@@ -24,13 +24,16 @@ export default function Playlist({
   }
 
   return (
-    <div id="playlist" className="flex h-full flex-col">
-      <h3 className="mx-auto w-10/12 py-space-y-xs text-center font-subheadline">
+    <div
+      id="playlist"
+      className="flex h-full flex-col justify-center py-space-y-md"
+    >
+      <h3 className="mx-auto w-10/12 text-center font-subheadline">
         Sélectionnez une musique pour en écouter un extrait
       </h3>
       <div
         id="playlist__container"
-        className="mx-auto flex w-10/12 grow flex-col justify-center py-space-y-xs"
+        className="mx-auto mt-space-y-md flex w-10/12 flex-col justify-center"
       >
         <ul className="grid gap-x-space-x-sm gap-y-space-y-xs lg:grid-cols-2 lg:gap-y-space-y-xs xl:grid-cols-3 xl:gap-y-space-y-sm">
           {playlist.map((track) => (
