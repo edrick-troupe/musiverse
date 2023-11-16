@@ -54,7 +54,11 @@ export default function VolumeBar({ audioRef }: VolumeBarProps) {
         htmlFor="volume-bar__input"
         className="volume-bar flex items-center justify-center gap-x-8"
       >
-        <button type="button" className="icon" onClick={() => handleMute()}>
+        <button
+          type="button"
+          id="volume-bar__icon"
+          onClick={() => handleMute()}
+        >
           {isMuted ? <RiVolumeMuteFill /> : <RiVolumeDownFill />}
         </button>
         <input

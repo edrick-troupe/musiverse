@@ -1,53 +1,59 @@
-$thumb-height: 18px;
+$thumb-height: clamp(14px, 2vw, 18px);
 $thumb-width: $thumb-height;
 
-#volume-bar__input {
-  appearance: none;
-  -webkit-appearance: none;
-  height: 6px;
-  width: 100%;
-  opacity: 0.45;
-  outline: none;
-  border-radius: 16px;
-  cursor: pointer;
-  &:focus {
-    opacity: 1;
+#volume-bar {
+  &__icon {
+    font-size: clamp(1em, 5vw, 1.75em);
   }
 
-  /* Thumb: webkit */
-  &::-webkit-slider-thumb {
-    -webkit-appearance: none;
+  &__input {
     appearance: none;
-    height: $thumb-height;
-    width: $thumb-width;
-    background-color: rgb(100, 61, 136);
-    border-radius: 50%;
-    border: none;
-    transition: 0.2s ease-in-out;
-  }
-  /* Thumb: Firefox */
-  &::-moz-range-thumb {
-    height: $thumb-height;
-    width: $thumb-width;
-    background-color: rgb(100, 61, 136);
-    border-radius: 50%;
-    border: none;
-    transition: 0.2s ease-in-out;
-  }
+    -webkit-appearance: none;
+    height: clamp(6px, 1.5vw, 9px);
+    width: 100%;
+    opacity: 0.45;
+    outline: none;
+    border-radius: 16px;
+    cursor: pointer;
+    &:focus {
+      opacity: 1;
+    }
 
-  /* Hover & active Thumb: Webkit */
-  &::-webkit-slider-thumb:hover {
-    box-shadow: 0 0 0 8px rgba(217, 176, 255, 0.2);
-  }
-  &:active::-webkit-slider-thumb {
-    box-shadow: 0 0 0 10px rgba(217, 176, 255, 0.5);
-  }
+    /* Thumb: webkit */
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      height: $thumb-height;
+      width: $thumb-width;
+      background-color: rgb(100, 61, 136);
+      border-radius: 50%;
+      border: none;
+      transition: 0.2s ease-in-out;
+    }
+    /* Thumb: Firefox */
+    &::-moz-range-thumb {
+      height: $thumb-height;
+      width: $thumb-width;
+      background-color: rgb(100, 61, 136);
+      border-radius: 50%;
+      border: none;
+      transition: 0.2s ease-in-out;
+    }
 
-  /* Hover & active Thumb: Firfox */
-  &::-moz-range-thumb:hover {
-    box-shadow: 0 0 0 8px rgba(217, 176, 255, 0.2);
-  }
-  &:active::-moz-range-thumb {
-    box-shadow: 0 0 0 10px rgba(217, 176, 255, 0.5);
+    /* Hover & active Thumb: Webkit */
+    &::-webkit-slider-thumb:hover {
+      box-shadow: 0 0 0 8px rgba(217, 176, 255, 0.2);
+    }
+    &:active::-webkit-slider-thumb {
+      box-shadow: 0 0 0 10px rgba(217, 176, 255, 0.5);
+    }
+
+    /* Hover & active Thumb: Firfox */
+    &::-moz-range-thumb:hover {
+      box-shadow: 0 0 0 8px rgba(217, 176, 255, 0.2);
+    }
+    &:active::-moz-range-thumb {
+      box-shadow: 0 0 0 10px rgba(217, 176, 255, 0.5);
+    }
   }
 }
