@@ -5,6 +5,8 @@ import './AudioPlayer.scss';
 
 import { PlaylistData } from '@customTypes/Playlist';
 
+import LoadingState from '@components/LoadingState/LoadingState';
+import ErrorState from '@components/ErrorState/ErrorState';
 import TrackDisplay from './TrackDisplay/TrackDisplay';
 import Controllers from './Controllers/Controllers';
 import VolumeBar from './VolumeBar/VolumeBar';
@@ -59,11 +61,11 @@ export default function AudioPlayer({
   }, [progression, currentTrackDuration]);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <LoadingState />;
   }
 
   if (error || !currentTrack) {
-    return <div>Something went wrong...</div>;
+    return <ErrorState />;
   }
 
   return (

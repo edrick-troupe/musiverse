@@ -1,0 +1,30 @@
+#error {
+  &__message {
+    font-size: clamp(1.5em, 7vw, 4em);
+    font-weight: 700;
+  }
+
+  #return-home {
+    button {
+      position: relative;
+      width: 100%;
+      font-size: clamp(0.8em, 3vw, 2em);
+      padding-top: 3.5em;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: -5%;
+        height: 1px;
+        width: 0%;
+        transform: translate(-50%, 0);
+        border-bottom: 1px solid #000;
+        transition: 0.6s;
+      }
+      &:hover::before {
+        width: 100%;
+        transition: 1s;
+      }
+    }
+  }
+}

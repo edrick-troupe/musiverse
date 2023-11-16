@@ -4,6 +4,9 @@ import './Playlist.scss';
 
 import { PlaylistData } from '@customTypes/Playlist';
 
+import LoadingState from '@components/LoadingState/LoadingState';
+import ErrorState from '@components/ErrorState/ErrorState';
+
 interface PlaylistProps {
   playlist: PlaylistData[];
   isLoading: boolean;
@@ -16,11 +19,11 @@ export default function Playlist({
   error,
 }: PlaylistProps) {
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <LoadingState />;
   }
 
   if (error) {
-    return <div>Something went wrong...</div>;
+    return <ErrorState />;
   }
 
   return (
