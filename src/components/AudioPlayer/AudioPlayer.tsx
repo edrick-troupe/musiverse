@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import './AudioPlayer.scss';
 
@@ -31,6 +31,8 @@ export default function AudioPlayer({
   const currentTrackId = Number(id);
   const currentTrack = playlist.find((track) => track.id === currentTrackId);
   const currentTrackDuration = audioRef.current?.duration;
+
+  const navigate = useNavigate();
 
   const repeat = useCallback(() => {
     setProgression(audioRef.current?.currentTime);
@@ -65,10 +67,7 @@ export default function AudioPlayer({
   }
 
   return (
-    <div
-      id="audio-player"
-      className="flex h-full flex-col justify-center gap-y-space-y-xs"
-    >
+    <div id="audio-player" className="flex h-full flex-col justify-center">
       <div id="track-description" className="mx-auto w-9/12 py-space-y-sm">
         <h3 className="text-center font-title">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam, unde.
@@ -94,6 +93,11 @@ export default function AudioPlayer({
           discRef={discRef}
         />
         <VolumeBar audioRef={audioRef} />
+      </div>
+      <div id="return-playlist" className="flex justify-center pt-8">
+        <button type="button" onClick={() => navigate('/playlist')}>
+          Retour à la playlist
+        </button>
       </div>
     </div>
   );
