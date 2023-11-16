@@ -1,4 +1,9 @@
 #audio-player {
+  #track-description {
+    p {
+      font-size: clamp(0.75em, 1.8vw, 1.4em);
+    }
+  }
   #track-card {
     width: clamp(18em, 40vw, 32em);
     background: rgba(255, 255, 255, 0.4);

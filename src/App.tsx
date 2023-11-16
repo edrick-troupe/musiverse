@@ -3,6 +3,8 @@ import { Route, Routes } from 'react-router-dom';
 
 import './App.scss';
 
+import playlistData from './data/supplementaryPlaylistData';
+
 import Home from './views/Home/Home';
 import Playlist from './views/Playlist/Playlist';
 import AudioPlayer from './components/AudioPlayer/AudioPlayer';
@@ -59,10 +61,10 @@ function App() {
             id: i + 1,
             title: track.name,
             artist: track.artists[0].name,
-            description: '',
+            description: playlistData[i].description,
             src: track.preview_url,
             thumbnail: track.album.images[1].url,
-            note: '',
+            other: playlistData[i].other,
           };
         });
         setPlaylist(data);

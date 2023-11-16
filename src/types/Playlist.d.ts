@@ -5,5 +5,5 @@ export interface PlaylistData {
   description: string;
   src: string;
   thumbnail: string;
-  note: string;
+  other: string;
 }

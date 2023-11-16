@@ -70,10 +70,16 @@ export default function AudioPlayer({
 
   return (
     <div id="audio-player" className="flex h-full flex-col justify-center">
-      <div id="track-description" className="mx-auto w-9/12 py-space-y-sm">
-        <h3 className="text-center font-title">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam, unde.
-        </h3>
+      <div
+        id="track-description"
+        className="mx-auto w-9/12 py-space-y-sm text-center "
+      >
+        <h3 className="font-title">{currentTrack.description}</h3>
+        {currentTrack.other && (
+          <p className="pt-space-y-xxs italic">
+            mention spéciale : {currentTrack.other}
+          </p>
+        )}
       </div>
       <div
         id="track-card"
