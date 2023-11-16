@@ -1,0 +1,57 @@
+#not-found {
+  &__message {
+    p {
+      font-size: clamp(1.5em, 5vw, 5em);
+    }
+  }
+  button {
+    position: relative;
+    overflow: hidden;
+    font-size: clamp(0.8em, 3.5vw, 2em);
+    letter-spacing: 1.5px;
+    border-radius: 8px;
+    border: 2px solid #596167;
+    z-index: 1;
+    -webkit-transition: 0.5s all ease;
+    transition: 0.5s all ease;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0%;
+      left: -50%;
+      top: 0%;
+      left: 100%;
+      height: 100%;
+      width: 50%;
+      margin: auto;
+      background: #596167;
+      z-index: -1;
+      transition: all 0.75s ease;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0%;
+      left: -50%;
+      height: 100%;
+      width: 50%;
+      margin: auto;
+      background: #596167;
+      z-index: -1;
+      transition: all 0.75s ease;
+    }
+
+    &:hover {
+      color: #fff;
+    }
+    &:hover:before {
+      top: 0;
+      left: 0;
+    }
+    &:hover:after {
+      top: 0;
+      left: 50%;
+    }
+  }
+}

@@ -6,6 +6,7 @@ import './App.scss';
 import Home from './views/Home/Home';
 import Playlist from './views/Playlist/Playlist';
 import AudioPlayer from './components/AudioPlayer/AudioPlayer';
+import NotFound from './views/NotFound/NotFound';
 
 import { TrackData } from './types/TrackData';
 
@@ -101,6 +102,7 @@ function App() {
             }
           />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
