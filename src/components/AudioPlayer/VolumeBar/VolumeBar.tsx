@@ -42,28 +42,34 @@ export default function VolumeBar({ audioRef }: VolumeBarProps) {
     audioRef.current!.muted = !isMuted;
   };
 
+  const handleProgressBarStyle = () => {
+    volumeRef.current!.style.background = `linear-gradient(to right, rgb(217, 176, 255) 0%, rgb(100, 61, 136) ${
+      volume * 10
+    }%, #F3C4FB ${volume * 10}%, #F3C4FB 100%)`;
+  };
+
   return (
     <div id="volume-bar" className="mx-auto mt-space-y-xs">
-      <div id="track-display__volume">
-        <label
-          htmlFor="track-display__volume"
-          className="volume-bar flex items-center justify-center gap-x-4"
-        >
-          <button type="button" className="icon" onClick={() => handleMute()}>
-            {isMuted ? <RiVolumeMuteFill /> : <RiVolumeDownFill />}
-          </button>
-          <input
-            type="range"
-            id="volume"
-            name="volume"
-            min="0"
-            max="10"
-            ref={volumeRef}
-            value={volume}
-            onChange={() => handleChangeVolume()}
-          />
-        </label>
-      </div>
+      <label
+        htmlFor="volume-bar__input"
+        className="volume-bar flex items-center justify-center gap-x-8"
+      >
+        <button type="button" className="icon" onClick={() => handleMute()}>
+          {isMuted ? <RiVolumeMuteFill /> : <RiVolumeDownFill />}
+        </button>
+        <input
+          type="range"
+          id="volume-bar__input"
+          name="volume-bar__input"
+          min="0"
+          max="10"
+          ref={volumeRef}
+          value={volume}
+          onChange={() => handleChangeVolume()}
+          onMouseMove={() => handleProgressBarStyle()}
+          onClick={() => handleProgressBarStyle()}
+        />
+      </label>
     </div>
   );
 }
