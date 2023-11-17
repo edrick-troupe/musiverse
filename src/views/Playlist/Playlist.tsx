@@ -45,7 +45,7 @@ export default function Playlist({
                 to={`/playlist/track/${track.id}`}
                 className="px-space-x-xs py-space-y-xxs"
               >
-                <div className="track flex h-full max-h-28 md:max-h-44">
+                <div className="track flex h-full max-h-28 md:max-h-44 lg:opacity-40 lg:hover:opacity-100">
                   <div className="track__album-cover w-2/5 shrink-0">
                     <img
                       src={track.thumbnail}
