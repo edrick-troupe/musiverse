@@ -1,10 +1,23 @@
+@use '@styles/variables.scss' as vars;
+
 // Headline
 h1 {
   font-size: clamp(1.4em, 7vw, 5em);
+  color: vars.$dark-violet;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px vars.$flash-pink,
+    0 0 20px vars.$light-mauve,
+    0 0 40px vars.$light-violet,
+    0 0 80px vars.$primary-mauve,
+    0 0 90px vars.$primary-violet,
+    0 0 100px vars.$dark-mauve;
 }
 // Subheadline
 h2 {
   font-size: clamp(1.125em, 3.875vw, 2.75em);
+  color: vars.$primary-violet;
+  text-shadow: 0.225vw 0.2vh 2px vars.$primary-black;
 }
 // Section title
 h3 {
