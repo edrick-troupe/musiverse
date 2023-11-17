@@ -14,7 +14,7 @@ export default function Home() {
       className="flex h-full flex-col items-center justify-evenly py-space-y-sm text-center"
     >
       <div id="headlines">
-        <h1 className="font-headline pb-space-y-sm">Musiverse</h1>
+        <h1 className="pb-space-y-sm font-headline">Musiverse</h1>
         <h2 className="font-subheadline">Découvrez mon univers musical !</h2>
       </div>
       <div id="home__animation">
@@ -22,7 +22,6 @@ export default function Home() {
           animationData={flyingAstronaut}
           style={{
             height: '50vh',
-            width: 'fit-content',
           }}
         />
       </div>

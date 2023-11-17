@@ -11,7 +11,6 @@ export default function LoadingState() {
         animationData={loadingAstronaut}
         style={{
           height: '50vh',
-          width: 'fit-content',
         }}
       />
     </div>

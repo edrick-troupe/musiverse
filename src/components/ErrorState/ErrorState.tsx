@@ -20,7 +20,6 @@ export default function ErrorState() {
         animationData={errorAstronaut}
         style={{
           height: '50vh',
-          width: 'fit-content',
         }}
       />
       <div id="return-home" className="font-subheadline">

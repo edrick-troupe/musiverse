@@ -34,7 +34,6 @@ export default function NotFound() {
         animationData={notFoundAstronaut}
         style={{
           height: '50vh',
-          width: 'fit-content',
         }}
       />
       <div className="lg:hidden">
