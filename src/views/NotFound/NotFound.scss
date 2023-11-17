@@ -1,3 +1,5 @@
+@use '@styles/variables.scss' as vars;
+
 #not-found {
   &__message {
     p {
@@ -10,7 +12,7 @@
     font-size: clamp(0.8em, 3.5vw, 2em);
     letter-spacing: 1.5px;
     border-radius: 8px;
-    border: 2px solid #596167;
+    border: 2px solid vars.$dark-gray;
     z-index: 1;
     -webkit-transition: 0.5s all ease;
     transition: 0.5s all ease;
@@ -25,7 +27,7 @@
       height: 100%;
       width: 50%;
       margin: auto;
-      background: #596167;
+      background: vars.$dark-gray;
       z-index: -1;
       transition: all 0.75s ease;
     }
@@ -37,13 +39,13 @@
       height: 100%;
       width: 50%;
       margin: auto;
-      background: #596167;
+      background: vars.$dark-gray;
       z-index: -1;
       transition: all 0.75s ease;
     }
 
     &:hover {
-      color: #fff;
+      color: vars.$primary-white;
     }
     &:hover:before {
       top: 0;

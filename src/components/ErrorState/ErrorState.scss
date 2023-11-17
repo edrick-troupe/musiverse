@@ -1,3 +1,5 @@
+@use '@styles/variables.scss' as vars;
+
 #error {
   &__message {
     font-size: clamp(1.5em, 7vw, 4em);
@@ -18,7 +20,7 @@
         height: 1px;
         width: 0%;
         transform: translate(-50%, 0);
-        border-bottom: 1px solid #000;
+        border-bottom: 1px solid vars.$primary-black;
         transition: 0.6s;
       }
       &:hover::before {

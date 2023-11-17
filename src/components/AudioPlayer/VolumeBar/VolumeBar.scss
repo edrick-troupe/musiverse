@@ -1,3 +1,5 @@
+@use '@styles/variables.scss' as vars;
+
 $thumb-height: clamp(14px, 2vw, 18px);
 $thumb-width: $thumb-height;
 
@@ -14,7 +16,7 @@ $thumb-width: $thumb-height;
     opacity: 0.45;
     outline: none;
     border-radius: 16px;
-    background-color: #f3c4fb;
+    background-color: vars.$primary-mauve;
     cursor: pointer;
     &:focus {
       opacity: 1;
@@ -26,7 +28,7 @@ $thumb-width: $thumb-height;
       appearance: none;
       height: $thumb-height;
       width: $thumb-width;
-      background-color: rgb(100, 61, 136);
+      background-color: vars.$dark-violet;
       border-radius: 50%;
       border: none;
       transition: 0.2s ease-in-out;
@@ -35,7 +37,7 @@ $thumb-width: $thumb-height;
     &::-moz-range-thumb {
       height: $thumb-height;
       width: $thumb-width;
-      background-color: rgb(100, 61, 136);
+      background-color: vars.$dark-violet;
       border-radius: 50%;
       border: none;
       transition: 0.2s ease-in-out;

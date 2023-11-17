@@ -1,3 +1,5 @@
+@use '@styles/variables.scss' as vars;
+
 #audio-player {
   #track-description {
     p {
@@ -29,8 +31,8 @@
 
     &:hover {
       letter-spacing: 3px;
-      background-color: rgb(100, 61, 136);
-      color: #c8e7ff;
+      background-color: vars.$dark-violet;
+      color: vars.$light-blue;
     }
   }
 }
